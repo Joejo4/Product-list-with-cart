@@ -11,7 +11,9 @@
   --rose-900: hsl(14, 65%, 9%);
 }
 
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -71,7 +73,7 @@ h1 {
 
 .image-container {
   position: relative;
-  margin-bottom: 2.2rem;
+  margin-bottom: 2.5srem;
   border-radius: 8px;
   overflow: visible;
 }
