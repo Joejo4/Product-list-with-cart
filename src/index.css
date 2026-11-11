@@ -73,7 +73,7 @@ h1 {
 
 .image-container {
   position: relative;
-  margin-bottom: 2.5srem;
+  margin-bottom: 2.5rem; /* Fixed typo from 2.5srem */
   border-radius: 8px;
   overflow: visible;
 }
@@ -390,6 +390,7 @@ h1 {
 }
 
 .modal-pricing {
+  address: flex;
   display: flex;
   gap: 1rem;
   font-size: 0.85rem;
