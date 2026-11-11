@@ -8,15 +8,10 @@ export default function ProductList({
   removeFromCart,
 }) {
   return (
-    <div
-      style={{
-        display: "grid",
-        gridTemplateColumns: "repeat(3, 1fr)",
-        gap: "1.5rem",
-      }}
-    >
+    <div className="product-grid">
       {products.map((product) => {
         const cartItem = cart.find((item) => item.name === product.name);
+
         return (
           <ProductCard
             key={product.name}

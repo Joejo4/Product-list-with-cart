@@ -12,6 +12,7 @@ export default function App() {
   const addToCart = (product) => {
     setCart((prevCart) => {
       const existingItem = prevCart.find((item) => item.name === product.name);
+
       if (existingItem) {
         return prevCart.map((item) =>
           item.name === product.name
@@ -19,21 +20,22 @@ export default function App() {
             : item,
         );
       }
+
       return [...prevCart, { ...product, quantity: 1 }];
     });
   };
 
   // Decrement quantity or remove item
   const removeFromCart = (productName) => {
-    setCart((prevCart) => {
-      return prevCart
+    setCart((prevCart) =>
+      prevCart
         .map((item) =>
           item.name === productName
             ? { ...item, quantity: item.quantity - 1 }
             : item,
         )
-        .filter((item) => item.quantity > 0);
-    });
+        .filter((item) => item.quantity > 0),
+    );
   };
 
   // Completely remove an item
@@ -41,34 +43,24 @@ export default function App() {
     setCart((prevCart) => prevCart.filter((item) => item.name !== productName));
   };
 
-  // Reset cart for a new order
+  // Confirm order
+  const confirmOrder = () => {
+    if (cart.length > 0) {
+      setIsModalOpen(true);
+    }
+  };
+
+  // Start a new order
   const startNewOrder = () => {
     setCart([]);
     setIsModalOpen(false);
   };
 
   return (
-    <div
-      style={{
-        maxWidth: "1250px",
-        margin: "0 auto",
-        display: "grid",
-        gridTemplateColumns: "2.2fr 1fr",
-        gap: "2rem",
-        padding: "2rem",
-        fontFamily: "sans-serif",
-      }}
-    >
-      <main>
-        <h1
-          style={{
-            fontSize: "2rem",
-            fontWeight: "700",
-            marginBottom: "1.5rem",
-          }}
-        >
-          Desserts
-        </h1>
+    <div className="container">
+      <main className="product-section">
+        <h1>Desserts</h1>
+
         <ProductList
           products={data}
           cart={cart}
@@ -76,12 +68,13 @@ export default function App() {
           removeFromCart={removeFromCart}
         />
       </main>
-      <aside>
+
+      <aside className="cart-sidebar">
         <Cart
           cart={cart}
           removeFromCart={removeFromCart}
           deleteItem={deleteItem}
-          confirmOrder={() => setIsModalOpen(true)}
+          confirmOrder={confirmOrder}
         />
       </aside>
 

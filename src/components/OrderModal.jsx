@@ -8,35 +8,46 @@ export default function OrderModal({ cart, startNewOrder }) {
 
   return (
     <div className="modal-overlay">
-      <div className="modal-content">
+      <div
+        className="modal-content"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="order-confirmed-title"
+      >
         <img
           src="/assets/images/icon-order-confirmed.svg"
-          alt="Order Confirmed"
+          alt=""
           className="confirmed-icon"
         />
-        <h2>Order Confirmed</h2>
+
+        <h2 id="order-confirmed-title">Order Confirmed</h2>
+
         <p>We hope you enjoy your food!</p>
 
         <div className="order-summary-box">
           <ul className="modal-items-list">
             {cart.map((item) => (
-              <li key={item.name} className="modal-item">
+              <li className="modal-item" key={item.name}>
                 <div className="modal-item-left">
                   <img
                     src={item.image.thumbnail}
-                    alt={item.name}
+                    alt=""
                     className="modal-thumbnail"
                   />
+
                   <div>
                     <h5>{item.name}</h5>
+
                     <div className="modal-pricing">
                       <span className="item-qty">{item.quantity}x</span>
+
                       <span className="item-price">
                         @ ${item.price.toFixed(2)}
                       </span>
                     </div>
                   </div>
                 </div>
+
                 <span className="modal-item-total">
                   ${(item.price * item.quantity).toFixed(2)}
                 </span>
