@@ -14,7 +14,10 @@ export default function Cart({ cart, deleteItem, confirmOrder }) {
 
       {cart.length === 0 ? (
         <div className="empty-cart">
-          <div className="empty-cart-icon">🛍️</div>
+          <img
+            src="/assets/images/illustration-empty-cart.svg"
+            alt="illustration-empty-cart"
+          />
           <p>Your added items will appear here</p>
         </div>
       ) : (
@@ -56,8 +59,13 @@ export default function Cart({ cart, deleteItem, confirmOrder }) {
             </div>
 
             <div className="carbon-neutral-notice">
-              <span>♧</span>
-              This is a carbon-neutral delivery
+              <img
+                src="/assets/images/icon-carbon-neutral.svg"
+                alt="Carbon neutral tree icon"
+              />
+              <span>
+                This is a <strong>carbon-neutral</strong> delivery
+              </span>
             </div>
 
             <button className="confirm-order-btn" onClick={confirmOrder}>

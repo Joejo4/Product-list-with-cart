@@ -401,7 +401,6 @@ body {
 }
 
 .modal-pricing {
-  address: flex;
   display: flex;
   gap: 1rem;
   font-size: 0.85rem;

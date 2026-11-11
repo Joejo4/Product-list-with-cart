@@ -26,7 +26,10 @@ export default function ProductCard({
             className="add-to-cart-btn"
             onClick={() => addToCart(product)}
           >
-            <span aria-hidden="true">♧</span>
+            <img
+              src="/assets/images/icon-add-to-cart.svg"
+              alt="Add to cart icon"
+            />
             Add to Cart
           </button>
         ) : (
